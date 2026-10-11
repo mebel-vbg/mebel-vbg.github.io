@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студия мебели в Выборге | Мебель на заказ с 30-летним опытом</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --serif: 'Fraunces', Georgia, serif;
+            --sans: 'DM Sans', sans-serif;
+            --cream: #f5f0e8;
+            --blush: #e8d5d0;
+            --mint: #d4e4e0;
+            --lavender: #ddd5e8;
+            --peach: #f0ddd0;
+            --dark: #2a2a2a;
+            --muted: #7a7a7a;
+            --accent: #8b7355;
+        }
+
+        body {
+            font-family: var(--sans);
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--cream);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            position: relative;
+        }
+
+        /* Decorative SVG elements */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid var(--accent);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .deco-line {
+            position: absolute;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .deco-dots {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-image: radial-gradient(circle, var(--accent) 1px, transparent 1px);
+            background-size: 12px 12px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        /* Header */
+        header {
+            background: rgba(245, 240, 232, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--dark);
+            font-style: italic;
+            letter-spacing: -0.3px;
+        }
+
+        .logo span {
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .phone {
+            font-weight: 400;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            padding: 140px 0 100px;
+            position: relative;
+            background: var(--cream);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 45%;
+            height: 100%;
+            background: url('images/kitchen.jpg') center/cover;
+            opacity: 0.12;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+            color: var(--dark);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: var(--muted);
+            font-weight: 300;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: transparent;
+            color: var(--dark);
+            padding: 1.1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid var(--dark);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            transition: left 0.4s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            color: var(--cream);
+        }
+
+        .cta-button svg {
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover svg {
+            transform: translateX(5px);
+        }
+
+        .hero-deco {
+            position: absolute;
+            bottom: 40px;
+            right: 80px;
+            font-family: var(--serif);
+            font-size: 12rem;
+            font-weight: 300;
+            color: var(--accent);
+            opacity: 0.06;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: 3.2rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            color: var(--dark);
+        }
+
+        .section-title em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* USP Section - Blush */
+        .usp {
+            background: var(--blush);
+            position: relative;
+        }
+
+        .usp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.2;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 4rem;
+        }
+
+        .usp-item {
+            padding: 3rem 2.5rem;
+            border-right: 1px dashed rgba(139, 115, 85, 0.2);
+            border-bottom: 1px dashed rgba(139, 115, 85, 0.2);
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .usp-item:nth-child(3n) {
+            border-right: none;
+        }
+
+        .usp-item:nth-child(n+4) {
+            border-bottom: none;
+        }
+
+        .usp-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .usp-number {
+            font-family: var(--serif);
+            font-size: 0.9rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .usp-item h3 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .usp-item p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Process Section - Mint */
+        .process {
+            background: var(--mint);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .step {
+            padding: 3rem;
+            border: 1px solid rgba(139, 115, 85, 0.15);
+            position: relative;
+            background: rgba(255,255,255,0.15);
+            transition: all 0.3s;
+        }
+
+        .step:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-5px);
+        }
+
+        .step::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 20px;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        .step-number {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--accent);
+            opacity: 0.4;
+            margin-bottom: 1rem;
+            line-height: 1;
+            font-style: italic;
+        }
+
+        .step h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* Portfolio Section - Lavender */
+        .portfolio {
+            background: var(--lavender);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio-item:nth-child(1) { grid-column: 1 / 8; }
+        .portfolio-item:nth-child(2) { grid-column: 8 / 13; }
+        .portfolio-item:nth-child(3) { grid-column: 1 / 5; }
+        .portfolio-item:nth-child(4) { grid-column: 5 / 9; }
+        .portfolio-item:nth-child(5) { grid-column: 9 / 13; }
+        .portfolio-item:nth-child(6) { grid-column: 1 / 7; }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: all 0.6s ease;
+            filter: grayscale(15%);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.03);
+            filter: grayscale(0%);
+        }
+
+        .portfolio-info {
+            margin-top: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .portfolio-info h3 {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .portfolio-info p {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Team Section - Peach */
+        .team {
+            background: var(--peach);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .team-member {
+            position: relative;
+        }
+
+        .team-member-img {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-member-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(42,42,42,0.1));
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: filter 0.3s;
+        }
+
+        .team-member:hover img {
+            filter: grayscale(0%);
+        }
+
+        .team-member h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            font-weight: 400;
+        }
+
+        .team-member p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Testimonials - Cream with pattern */
+        .testimonials {
+            background: var(--cream);
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(139, 115, 85, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 115, 85, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 60% 80%, rgba(139, 115, 85, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial {
+            position: relative;
+            padding: 3rem 0;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-family: var(--serif);
+            font-size: 8rem;
+            color: var(--accent);
+            opacity: 0.1;
+            position: absolute;
+            top: -2rem;
+            left: -1rem;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-author {
+            font-size: 0.8rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-author::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* FAQ Section - Blush */
+        .faq {
+            background: var(--blush);
+        }
+
+        .faq-list {
+            margin-top: 4rem;
+            max-width: 900px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+        }
+
+        .faq-question {
+            padding: 2rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 400;
+            transition: color 0.3s;
+            gap: 2rem;
+        }
+
+        .faq-question:hover {
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 300px;
+            padding-bottom: 2rem;
+        }
+
+        .faq-answer p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            color: var(--accent);
+            flex-shrink: 0;
+            font-weight: 300;
+        }
+
+        .faq-icon.active {
+            transform: rotate(45deg);
+        }
+
+        /* Final CTA - Dark with image */
+        .final-cta {
+            background: var(--dark);
+            color: var(--cream);
+            text-align: center;
+            padding: 140px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/office.jpg') center/cover;
+            opacity: 0.08;
+        }
+
+        .final-cta .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-cta h2 {
+            font-family: var(--serif);
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .final-cta h2 em {
+            font-style: italic;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: rgba(245, 240, 232, 0.6);
+            font-weight: 300;
+        }
+
+        .final-cta .cta-button {
+            border-color: var(--cream);
+            color: var(--cream);
+        }
+
+        .final-cta .cta-button::before {
+            background: var(--cream);
+        }
+
+        .final-cta .cta-button:hover {
+            color: var(--dark);
+        }
+
+        .final-cta-deco {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border: 1px solid rgba(245, 240, 232, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .final-cta-deco::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            right: 50px;
+            bottom: 50px;
+            border: 1px dashed rgba(245, 240, 232, 0.05);
+            border-radius: 50%;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--cream);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid rgba(139, 115, 85, 0.15);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .footer-section h3 {
+            font-family: var(--serif);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .footer-section p, .footer-section a {
+            font-size: 0.85rem;
+            color: var(--muted);
+            text-decoration: none;
+            line-height: 2.2;
+            display: block;
+            font-weight: 300;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 115, 85, 0.1);
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-weight: 300;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 1.5px;
+            background: var(--dark);
+            transition: all 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .usp-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .usp-item:nth-child(2n) {
+                border-right: none;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item:nth-child(n) {
+                grid-column: auto;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero::before {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .usp-grid,
+            .process-grid,
+            .team-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .usp-item {
+                border-right: none;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2.2rem;
+            }
+
+            .hero-deco {
+                display: none;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><span>Студия</span> Мебели</div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#usp">О нас</a></li>
+                    <li><a href="#process">Процесс</a></li>
+                    <li><a href="#portfolio">Работы</a></li>
+                    <li><a href="#team">Команда</a></li>
+                    <li><a href="#testimonials">Отзывы</a></li>
+                    <li><a href="#faq">Вопросы</a></li>
+                </ul>
+                <a href="tel:+78137853085" class="phone">+7 81378 5-30-85</a>
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Мебельная студия · Выборг</div>
+                <h1>Мебель, которая <em>рассказывает</em> вашу историю</h1>
+                <p>Тридцать лет мы превращаем смелые идеи в предметы интерьера. Каждый проект — диалог между вашим видением и нашим мастерством.</p>
+                <a href="#contact" class="cta-button">
+                    Бесплатный замер
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-deco">30</div>
+        <div class="deco-circle" style="width: 200px; height: 200px; top: 20%; right: 10%;"></div>
+        <div class="deco-dots" style="bottom: 10%; left: 5%;"></div>
+    </section>
+
+    <!-- USP Section -->
+    <section class="usp" id="usp">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Почему мы</div>
+                <h2 class="section-title">Три десятилетия <em>доверия</em><br>к каждому сантиметру</h2>
+            </div>
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <div class="usp-number">01</div>
+                    <h3>Опыт, проверенный временем</h3>
+                    <p>Тридцать лет успешных проектов. Мы пережили тренды и остались верны качеству.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number">02</div>
+                    <h3>Профильное образование</h3>
+                    <p>Наши мастера — не просто исполнители. Это профессионалы с глубоким пониманием ремесла.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number">03</div>
+                    <h3>Дизайн-проект включён</h3>
+                    <p>Вы увидите результат ещё до начала производства. 3D-визуализация каждой детали.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number">04</div>
+                    <h3>Технологии и точность</h3>
+                    <p>Высокотехнологичное оборудование позволяет воплощать самые сложные формы.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number">05</div>
+                    <h3>Сертификат качества</h3>
+                    <p>Официальная гарантия на все работы. Мы отвечаем за каждый этап.</p>
+                </div>
+                <div class="usp-item">
+                    <div class="usp-number">06</div>
+                    <h3>Бесконечная палитра</h3>
+                    <p>От классики до лофта. Огромное количество цветовых решений для вашего интерьера.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Как мы работаем</div>
+                <h2 class="section-title">От первой встречи<br>до <em>готового проекта</em></h2>
+            </div>
+            <div class="process-grid">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Знакомство</h3>
+                    <p>Обсуждаем ваши идеи, пожелания и ограничения. Слушаем внимательно, помогаем сформулировать мечту.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Замер</h3>
+                    <p>Бесплатный выезд замерщика. Точные размеры, фото-фиксация, учёт всех нюансов пространства.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Дизайн-проект</h3>
+                    <p>3D-визуализация вашей мебели в интерьере. Вы видите результат до начала производства.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <h3>Производство</h3>
+                    <p>Изготовление на высокотехнологичном оборудовании. Контроль качества на каждом этапе.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">05</div>
+                    <h3>Установка</h3>
+                    <p>Аккуратная сборка и уборка. Оставляем ваше пространство идеальным.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">06</div>
+                    <h3>Гарантия</h3>
+                    <p>Наша забота не заканчивается с установкой. Мы всегда на связи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Портфолио</div>
+                <h2 class="section-title">Проекты, которыми<br>мы <em>гордимся</em></h2>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/kitchen.jpg" alt="Кухня на заказ">
+                    <div class="portfolio-info">
+                        <h3>Кухня в скандинавском стиле</h3>
+                        <p>Минимализм</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/bedroom.jpg" alt="Спальня на заказ">
+                    <div class="portfolio-info">
+                        <h3>Спальня с гардеробной</h3>
+                        <p>Неоклассика</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/living-room.jpg" alt="Гостиная на заказ">
+                    <div class="portfolio-info">
+                        <h3>Гостиная-студия</h3>
+                        <p>Лофт</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/wardrobe.jpg" alt="Шкаф-купе">
+                    <div class="portfolio-info">
+                        <h3>Шкаф-купе на заказ</h3>
+                        <p>Классика</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/office.jpg" alt="Офисная мебель">
+                    <div class="portfolio-info">
+                        <h3>Домашний кабинет</h3>
+                        <p>Современный</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/kids-room.jpg" alt="Детская комната">
+                    <div class="portfolio-info">
+                        <h3>Детская комната</h3>
+                        <p>Функциональный дизайн</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Команда</div>
+                <h2 class="section-title">Люди, которые<br>создают <em>вашу мебель</em></h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="images/team-director.jpg" alt="Руководитель студии">
+                    </div>
+                    <h3>Александр Иванов</h3>
+                    <p>Руководитель студии</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="images/team-designer.jpg" alt="Дизайнер">
+                    </div>
+                    <h3>Мария Петрова</h3>
+                    <p>Ведущий дизайнер</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="images/team-measurer.jpg" alt="Мастер-замерщик">
+                    </div>
+                    <h3>Дмитрий Сидоров</h3>
+                    <p>Мастер-замерщик</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Отзывы</div>
+                <h2 class="section-title">Слова тех, кто уже<br>живёт в <em>своей мечте</em></h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">Заказывали кухню. Мастера профессиональные, всё сделали точно по проекту. Качество отличное, фурнитура надёжная. Прошло три года — как новая.</p>
+                    <p class="testimonial-author">Елена Смирнова</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Шкаф-купе в спальню. Замерщик приехал вовремя, дизайн-проект показали в 3D — очень удобно видеть результат заранее. Шкаф получился идеальный.</p>
+                    <p class="testimonial-author">Андрей Козлов</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Мебель для всей квартиры. Ребята учли все пожелания, предложили интересные решения. Сроки соблюдены, цена адекватная. Рекомендую.</p>
+                    <p class="testimonial-author">Ольга Новикова</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">Три года назад заказали мебель для загородного дома. Всё до сих пор выглядит как новое. Особенно ценим индивидуальный подход и внимание к деталям.</p>
+                    <p class="testimonial-author">Михаил Волков</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Вопросы</div>
+                <h2 class="section-title">Всё, что нужно знать<br>перед <em>началом</em></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>А если я хочу очень сложный или необычный дизайн?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Мы специализируемся на оригинальных и даже экстравагантных идеях. Именно тридцатилетний опыт позволяет нам воплощать самые смелые решения. Наш дизайнер поможет реализовать любую задумку.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько стоит мебель на заказ?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Стоимость зависит от материала, размера и сложности проекта. Чтобы рассчитать точно, нужен замер. Закажите бесплатный замер — специалист поможет составить предварительный бюджет.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как долго ждать изготовления?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Сроки зависят от объёма и сложности. После замера назовём точный график. В среднем изготовление занимает от 2 до 6 недель.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какая гарантия на мебель?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Официальная гарантия на все изделия — от 1 до 5 лет в зависимости от типа мебели. Также предлагаем постгарантийное обслуживание.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Работаете ли вы с загородными домами?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Да, работаем по всему Выборгу и Ленинградской области. Выезд замерщика в пригород — бесплатно. Есть опыт меблировки квартир и загородных домов.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="contact">
+        <div class="final-cta-deco"></div>
+        <div class="container">
+            <h2>Готовы создать <em>уникальный</em><br>интерьер?</h2>
+            <p>Замерщики свободны на этой неделе. Начните с бесплатного замера.</p>
+            <a href="tel:+78137853085" class="cta-button">
+                Заказать бесплатный замер
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">Студия Мебели</div>
+                    <p class="footer-brand-desc">Тридцать лет создаём мебель, которая становится частью вашей истории. Выборг, Приморская 47.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Приморская д.47, Выборг</p>
+                    <p><a href="tel:+78137853085">+7 81378 5-30-85</a></p>
+                    <p><a href="mailto:info@mebelnazakazvbg.ru">info@mebelnazakazvbg.ru</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Часы работы</h3>
+                    <p>Пн–Пт: 9:00–18:00</p>
+                    <p>Сб: 10:00–16:00</p>
+                    <p>Вс: выходной</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Соцсети</h3>
+                    <p><a href="https://instagram.com/mebelnazakazvbg" target="_blank">Instagram</a></p>
+                    <p><a href="#">WhatsApp</a></p>
+                    <p><a href="#">Telegram</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Студия мебели, Выборг. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-icon');
+                
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    if (a !== answer) a.classList.remove('active');
+                });
+                document.querySelectorAll('.faq-icon').forEach(i => {
+                    if (i !== icon) i.classList.remove('active');
+                });
+
+                answer.classList.toggle('active');
+                icon.classList.toggle('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Parallax effect for hero deco
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroDeco = document.querySelector('.hero-deco');
+            if (heroDeco) {
+                heroDeco.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
