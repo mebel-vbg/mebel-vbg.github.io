@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мебель на заказ в Выборге — Студия мебели «Мебель на заказ»</title>
+  <meta name="description" content="Студия мебели в Выборге. Изготавливаем мебель на заказ в любом стиле — от классики до лофта. Около 30 лет опыта, дизайн-проект, гарантия качества. Приморская д. 47.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf7f2;
+      --ink: #23201c;
+      --ink-soft: #5c564e;
+      --wood: #8a5a2b;
+      --wood-deep: #6b441d;
+      --gold: #b98b45;
+      --line: #e6ddcf;
+      --card: #ffffff;
+      --radius: 18px;
+      --shadow: 0 10px 40px -18px rgba(60, 42, 20, .35);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    .wrap { width: min(1160px, 92%); margin-inline: auto; }
+
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.15; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--wood);
+      margin-bottom: 14px;
+    }
+
+    .section-title { font-size: clamp(1.7rem, 3.6vw, 2.6rem); margin-bottom: 16px; }
+
+    .section-lead { color: var(--ink-soft); max-width: 620px; font-size: 1.05rem; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(250, 247, 242, .92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .logo { text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: 12px; }
+    .logo-mark {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--wood), var(--gold));
+      display: grid; place-items: center;
+      color: #fff; font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700;
+      flex: none;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-text b { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; }
+    .logo-text span { font-size: .72rem; color: var(--ink-soft); letter-spacing: .06em; text-transform: uppercase; }
+
+    .nav-links { display: flex; gap: 26px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--ink-soft); font-weight: 600; font-size: .92rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--wood); }
+
+    .nav-phone {
+      display: inline-flex; align-items: center; gap: 9px;
+      text-decoration: none; color: #fff; font-weight: 700; font-size: .95rem;
+      background: var(--wood);
+      padding: 11px 20px; border-radius: 999px;
+      transition: background .2s, transform .2s;
+      white-space: nowrap;
+    }
+    .nav-phone:hover { background: var(--wood-deep); transform: translateY(-1px); }
+
+    .burger { display: none; background: none; border: 0; cursor: pointer; padding: 8px; }
+    .burger span { display: block; width: 24px; height: 2px; background: var(--ink); margin: 5px 0; border-radius: 2px; transition: .25s; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: clamp(48px, 7vw, 90px) 0 clamp(56px, 7vw, 96px); overflow: hidden; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(28px, 5vw, 64px);
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #fff; border: 1px solid var(--line);
+      padding: 8px 16px; border-radius: 999px;
+      font-size: .85rem; font-weight: 700; color: var(--wood);
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+    .hero-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+
+    .hero h1 { font-size: clamp(2.1rem, 5.2vw, 3.6rem); margin-bottom: 20px; }
+    .hero h1 em { font-style: italic; color: var(--wood); }
+
+    .hero p.lead { font-size: clamp(1rem, 1.6vw, 1.15rem); color: var(--ink-soft); max-width: 520px; margin-bottom: 32px; }
+
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 28px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem; text-decoration: none;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    .btn-primary { background: var(--wood); color: #fff; box-shadow: 0 14px 30px -14px rgba(107, 68, 29, .8); }
+    .btn-primary:hover { background: var(--wood-deep); transform: translateY(-2px); }
+    .btn-ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--wood); color: var(--wood); transform: translateY(-2px); }
+
+    .hero-stats { display: flex; gap: clamp(18px, 4vw, 44px); flex-wrap: wrap; }
+    .stat b { display: block; font-family: 'Playfair Display', serif; font-size: 1.9rem; color: var(--wood); line-height: 1.1; }
+    .stat span { font-size: .85rem; color: var(--ink-soft); }
+
+    .hero-visual { position: relative; }
+
+    .hero-visual .main-img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual .float-card {
+      position: absolute;
+      left: -28px;
+      bottom: 34px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      display: flex; align-items: center; gap: 14px;
+      max-width: 260px;
+      animation: floaty 5s ease-in-out infinite;
+    }
+    .float-card .icon {
+      width: 44px; height: 44px; flex: none;
+      border-radius: 12px;
+      background: #f3e9db;
+      display: grid; place-items: center;
+      color: var(--wood);
+    }
+    .float-card b { display: block; font-size: .92rem; }
+    .float-card span { font-size: .8rem; color: var(--ink-soft); }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ---------- Benefits ---------- */
+    .benefits { padding: clamp(50px, 7vw, 90px) 0; background: #fff; border-block: 1px solid var(--line); }
+
+    .benefits-head { text-align: center; margin-bottom: 46px; }
+    .benefits-head .section-lead { margin-inline: auto; }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .benefit {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .benefit:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: #d9c9ad; }
+
+    .benefit .icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #f0e2cd, #e3cba2);
+      display: grid; place-items: center;
+      color: var(--wood-deep);
+      margin-bottom: 18px;
+    }
+
+    .benefit h3 { font-size: 1.12rem; margin-bottom: 8px; font-family: 'Manrope', sans-serif; font-weight: 800; }
+    .benefit p { font-size: .9rem; color: var(--ink-soft); }
+
+    /* ---------- Styles ---------- */
+    .styles { padding: clamp(50px, 7vw, 90px) 0; }
+
+    .styles-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+
+    .styles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .style-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 400px;
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+    .style-card img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+      z-index: -2;
+    }
+    .style-card::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(20,14,8,0) 38%, rgba(20,14,8,.82) 100%);
+      z-index: -1;
+    }
+    .style-card:hover img { transform: scale(1.06); }
+
+    .style-card .caption { position: absolute; left: 22px; right: 22px; bottom: 20px; color: #fff; }
+    .style-card .caption h3 { font-size: 1.4rem; margin-bottom: 6px; }
+    .style-card .caption p { font-size: .88rem; opacity: .88; }
+
+    /* ---------- Works ---------- */
+    .works { padding: clamp(50px, 7vw, 90px) 0; background: #fff; border-block: 1px solid var(--line); }
+    .works .benefits-head { margin-bottom: 40px; }
+
+    .works-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 16px; }
+
+    .work {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px -12px rgba(60,42,20,.4);
+    }
+    .work img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .work:hover img { transform: scale(1.05); }
+    .work .tag {
+      position: absolute; left: 12px; bottom: 12px;
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      font-size: .78rem; font-weight: 700;
+      padding: 6px 12px; border-radius: 999px;
+    }
+    .work.wide { grid-column: span 2; }
+    .work.tall { grid-row: span 2; }
+
+    /* ---------- Process ---------- */
+    .process { padding: clamp(50px, 7vw, 90px) 0; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 44px; counter-reset: step; }
+
+    .step { position: relative; padding-top: 8px; }
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: #d9c9ad;
+      display: block;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .step::after {
+      content: "";
+      position: absolute;
+      top: 26px; left: 64px; right: -12px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--line), transparent);
+    }
+    .step:last-child::after { display: none; }
+    .step h3 { font-size: 1.1rem; font-family: 'Manrope', sans-serif; font-weight: 800; margin-bottom: 8px; }
+    .step p { font-size: .9rem; color: var(--ink-soft); }
+
+    /* ---------- About ---------- */
+    .about { padding: clamp(50px, 7vw, 90px) 0; background: #fff; border-block: 1px solid var(--line); }
+
+    .about-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: clamp(28px, 5vw, 60px); align-items: center; }
+
+    .about-visual { position: relative; }
+    .about-visual img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow); }
+
+    .about-visual .stamp {
+      position: absolute; right: -18px; top: -18px;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: var(--wood);
+      color: #fff;
+      display: grid; place-items: center;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+      box-shadow: var(--shadow);
+      transform: rotate(8deg);
+    }
+    .about-visual .stamp b { font-size: 1.7rem; display: block; }
+    .about-visual .stamp span { font-size: .72rem; font-family: 'Manrope', sans-serif; text-transform: uppercase; letter-spacing: .1em; }
+
+    .about ul { list-style: none; margin-top: 22px; display: grid; gap: 14px; }
+    .about li { display: flex; gap: 12px; align-items: flex-start; font-size: .96rem; color: var(--ink-soft); }
+    .about li svg { flex: none; margin-top: 3px; color: var(--wood); }
+    .about li b { color: var(--ink); }
+
+    /* ---------- CTA band ---------- */
+    .cta-band {
+      margin: clamp(50px, 7vw, 90px) 0;
+      border-radius: 28px;
+      background:
+        linear-gradient(120deg, rgba(35,24,12,.88), rgba(107,68,29,.78)),
+        url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80') center/cover;
+      color: #fff;
+      padding: clamp(38px, 6vw, 64px);
+      text-align: center;
+    }
+    .cta-band h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); margin-bottom: 14px; }
+    .cta-band p { opacity: .85; max-width: 560px; margin: 0 auto 28px; }
+    .cta-band .btn-primary { background: #fff; color: var(--wood-deep); }
+    .cta-band .btn-primary:hover { background: #f3e9db; }
+
+    /* ---------- Contacts ---------- */
+    .contacts { padding: 0 0 clamp(50px, 7vw, 80px); }
+
+    .contacts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+
+    .contact-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: clamp(26px, 4vw, 40px);
+    }
+
+    .contact-card h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin-bottom: 18px; }
+
+    .contact-list { list-style: none; display: grid; gap: 18px; margin-top: 20px; }
+    .contact-list li { display: flex; gap: 14px; align-items: flex-start; }
+    .contact-list .icon {
+      width: 44px; height: 44px; flex: none;
+      border-radius: 12px;
+      background: #fff; border: 1px solid var(--line);
+      display: grid; place-items: center;
+      color: var(--wood);
+    }
+    .contact-list b { display: block; font-size: 1.05rem; }
+    .contact-list a { color: var(--ink); text-decoration: none; font-weight: 700; }
+    .contact-list a:hover { color: var(--wood); }
+    .contact-list span { font-size: .85rem; color: var(--ink-soft); }
+
+    .map {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      min-height: 340px;
+      background:
+        linear-gradient(rgba(250,247,242,.55), rgba(250,247,242,.55)),
+        url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80') center/cover;
+      display: grid; place-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+    .map .pin {
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px 26px;
+      box-shadow: var(--shadow);
+    }
+    .map .pin b { display: block; font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 4px; }
+    .map .pin span { font-size: .88rem; color: var(--ink-soft); }
+
+    /* ---------- Footer ---------- */
+    footer { background: #23201c; color: #cfc7bb; padding: 40px 0 28px; }
+    .footer-grid { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: flex-start; }
+    footer .logo-text b { color: #fff; }
+    footer .logo-text span { color: #9d948a; }
+    footer a { color: #cfc7bb; text-decoration: none; }
+    footer a:hover { color: #fff; }
+    .footer-cols { display: flex; gap: clamp(24px, 5vw, 70px); flex-wrap: wrap; }
+    .footer-col b { display: block; color: #fff; margin-bottom: 10px; font-size: .9rem; }
+    .footer-col p, .footer-col a { display: block; font-size: .88rem; margin-bottom: 6px; }
+    .footer-bottom { border-top: 1px solid #3a352e; margin-top: 30px; padding-top: 18px; font-size: .8rem; color: #8d8478; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1020px) {
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .styles-grid { grid-template-columns: 1fr 1fr; }
+      .works-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .step::after { display: none; }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links, .nav .nav-phone { display: none; }
+      .burger { display: block; }
+
+      .nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 18px 4%;
+        gap: 16px;
+      }
+      .nav.open .nav-phone {
+        display: inline-flex;
+        position: absolute;
+        top: calc(100% + 150px); left: 4%;
+      }
+
+      .hero-grid, .about-grid, .contacts-grid { grid-template-columns: 1fr; }
+      .hero-visual .main-img { aspect-ratio: 4 / 3; }
+      .hero-visual .float-card { left: 12px; bottom: 12px; }
+      .about-visual .stamp { right: 10px; top: -14px; }
+      .styles-grid { grid-template-columns: 1fr; }
+      .style-card { min-height: 320px; }
+    }
+
+    @media (max-width: 540px) {
+      .benefits-grid, .works-grid, .process-grid { grid-template-columns: 1fr; }
+      .work.wide { grid-column: span 1; }
+      .work.tall { grid-row: span 1; }
+      .works-grid { grid-auto-rows: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap nav" id="nav">
+      <a class="logo" href="#top">
+        <span class="logo-mark">М</span>
+        <span class="logo-text">
+          <b>Мебель на заказ</b>
+          <span>Студия мебели · Выборг</span>
+        </span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#benefits">Почему мы</a></li>
+        <li><a href="#styles">Стили</a></li>
+        <li><a href="#works">Работы</a></li>
+        <li><a href="#process">Этапы</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+
+      <a class="nav-phone" href="tel:+78137853085">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +7 81378 5-30-85
+      </a>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="hero-badge">Около 30 лет на рынке мебели</span>
+          <h1>Мебель на заказ,<br>созданная <em>под ваш характер</em></h1>
+          <p class="lead">Студия мебели в Выборге. Реализуем самые оригинальные и даже экстравагантные идеи наших заказчиков — от элегантной классики до смелого лофта.</p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="tel:+78137853085">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Позвонить в студию
+            </a>
+            <a class="btn btn-ghost" href="https://instagram.com/mebelnazakazvbg" target="_blank" rel="noopener">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Наши работы в Instagram
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat"><b>30 лет</b><span>успешной работы</span></div>
+            <div class="stat"><b>100%</b><span>мебель с гарантией</span></div>
+            <div class="stat"><b>∞</b><span>цветовых решений</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img class="main-img" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=900&q=80" alt="Гостиная с мебелью на заказ: диван, деревянный стол, кресла">
+          <div class="float-card">
+            <span class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+            </span>
+            <div>
+              <b>Дизайн-проект бесплатно</b>
+              <span>Рисуем и согласовываем до начала работ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits" id="benefits">
+      <div class="wrap">
+        <div class="benefits-head">
+          <span class="eyebrow">Почему выбирают нас</span>
+          <h2 class="section-title">Мебель, за которую не стыдно</h2>
+          <p class="section-lead">Мы не продаём мебель «с полок» — мы производим её. Каждый предмет проходит через руки мастеров с мебельным образованием и современное высокотехнологичное оборудование.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+            <h3>Около 30 лет опыта</h3>
+            <p>Три десятилетия успешной работы — и репутация, которую нельзя купить.</p>
+          </article>
+
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <h3>Мастера с образованием</h3>
+            <p>У нас работают специалисты с профильным мебельным образованием.</p>
+          </article>
+
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+            <h3>Дизайн-проект</h3>
+            <p>Разрабатываем проект мебели под ваш интерьер и согласовываем каждую деталь.</p>
+          </article>
+
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+            <h3>Любой стиль</h3>
+            <p>Изготавливаем мебель в любом стиле — от классики до лофта.</p>
+          </article>
+
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+            <h3>Сертификат качества</h3>
+            <p>Работаем только с сертифицированными материалами.</p>
+          </article>
+
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+            <h3>Современное оборудование</h3>
+            <p>Высокотехнологичное оборудование даёт ювелирную точность деталей.</p>
+          </article>
+
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21.21 15.89A10 10 0 1 1 8.11 2.99"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></span>
+            <h3>Гарантия на мебель</h3>
+            <p>Отвечаем за результат — предоставляем гарантию на свою работу.</p>
+          </article>
+
+          <article class="benefit">
+            <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></span>
+            <h3>Огромная палитра цветов</h3>
+            <p>Тысячи оттенков и фактур — подберём под любую палитру интерьера.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STYLES -->
+    <section class="styles" id="styles">
+      <div class="wrap">
+        <div class="styles-head">
+          <div>
+            <span class="eyebrow">Стили</span>
+            <h2 class="section-title">От классики до лофта — и всё между ними</h2>
+            <p class="section-lead">Самые оригинальные и даже экстравагантные идеи наших заказчиков реализуются у нас каждый день.</p>
+          </div>
+        </div>
+
+        <div class="styles-grid">
+          <article class="style-card">
+            <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80" alt="Классический интерьер с диваном" loading="lazy">
+            <div class="caption">
+              <h3>Классика</h3>
+              <p>Благородные линии, мягкая обивка и безупречные пропорции.</p>
+            </div>
+          </article>
+
+          <article class="style-card">
+            <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80" alt="Интерьер в стиле лофт" loading="lazy">
+            <div class="caption">
+              <h3>Лофт</h3>
+              <p>Честные материалы, грубая фактура дерева и смелые решения.</p>
+            </div>
+          </article>
+
+          <article class="style-card">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Современный интерьер с креслом" loading="lazy">
+            <div class="caption">
+              <h3>Современный минимализм</h3>
+              <p>Чистые формы, функциональность и акцент на деталях.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORKS -->
+    <section class="works" id="works">
+      <div class="wrap">
+        <div class="benefits-head">
+          <span class="eyebrow">Наши работы</span>
+          <h2 class="section-title">Мебель, которая делает дом домом</h2>
+          <p class="section-lead">Кухни, шкафы, мягкая мебель, системы хранения — каждый предмет создан по индивидуальным размерам.</p>
+        </div>
+
+        <div class="works-grid">
+          <figure class="work wide">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=80" alt="Зелёный бархатный диван" loading="lazy">
+            <figcaption class="tag">Мягкая мебель</figcaption>
+          </figure>
+          <figure class="work tall">
+            <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=700&q=80" alt="Деревянный настенный шкаф с полками" loading="lazy">
+            <figcaption class="tag">Системы хранения</figcaption>
+          </figure>
+          <figure class="work">
+            <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=700&q=80" alt="Оранжевый диван с подушками" loading="lazy">
+            <figcaption class="tag">Диваны</figcaption>
+          </figure>
+          <figure class="work">
+            <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=700&q=80" alt="Светлая гостиная" loading="lazy">
+            <figcaption class="tag">Гостиные</figcaption>
+          </figure>
+          <figure class="work wide">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80" alt="Светлая гостиная с мебелью" loading="lazy">
+            <figcaption class="tag">Интерьеры под ключ</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+      <div class="wrap">
+        <span class="eyebrow">Как мы работаем</span>
+        <h2 class="section-title">От идеи до готовой мебели — 4 шага</h2>
+
+        <div class="process-grid">
+          <div class="step">
+            <h3>Знакомство и замер</h3>
+            <p>Обсуждаем идею, приезжаем на замер и учитываем каждый сантиметр вашего пространства.</p>
+          </div>
+          <div class="step">
+            <h3>Дизайн-проект</h3>
+            <p>Разрабатываем проект с 3D-визуализацией, подбираем материалы, фурнитуру и цвет.</p>
+          </div>
+          <div class="step">
+            <h3>Производство</h3>
+            <p>Изготавливаем мебель на высокотехнологичном оборудовании под контролем мастеров.</p>
+          </div>
+          <div class="step">
+            <h3>Доставка и монтаж</h3>
+            <p>Доставляем, собираем и сдаём готовый результат — с гарантией на мебель.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about">
+      <div class="wrap about-grid">
+        <div class="about-visual">
+          <img src="https://images.unsplash.com/photo-1601058268499-e52658b8bb88?auto=format&fit=crop&w=900&q=80" alt="Мастер мебельного производства за работой" loading="lazy">
+          <div class="stamp"><div><b>30</b><span>лет опыта</span></div></div>
+        </div>
+
+        <div>
+          <span class="eyebrow">О студии</span>
+          <h2 class="section-title">Мебельная мастерская в самом сердце Выборга</h2>
+          <p class="section-lead">Мы с огромной радостью поработаем с вами над самыми смелыми решениями. За ~30 лет работы мы научились превращать даже экстравагантные идеи в функциональную мебель, которой пользуются годами.</p>
+
+          <ul>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><b>Собственное производство</b> — без посредников и наценок, контроль качества на каждом этапе.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><b>Индивидуальный подход</b> — изготавливаем мебель в любом стиле и любой сложности.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><b>Полный цикл услуг</b> — от дизайн-проекта до доставки и монтажа.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><b>Гарантия и сертификаты</b> — документально подтверждённое качество.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="wrap">
+      <section class="cta-band">
+        <h2>Готовы обсудить ваш проект?</h2>
+        <p>Расскажите о своих идеях — мы предложим решение, материалы и смету. Чем смелее идея, тем интереснее нам её реализовать.</p>
+        <a class="btn btn-primary" href="tel:+78137853085">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +7 81378 5-30-85
+        </a>
+      </section>
+    </div>
+
+    <!-- CONTACTS -->
+    <section class="contacts" id="contacts">
+      <div class="wrap contacts-grid">
+        <div class="contact-card">
+          <span class="eyebrow">Контакты</span>
+          <h2>Ждём вас в студии</h2>
+          <p class="section-lead">Звоните, пишите в Instagram или приезжайте в студию — обсудим ваш проект за чашкой кофе.</p>
+
+          <ul class="contact-list">
+            <li>
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              <div>
+                <a href="tel:+78137853085"><b>+7 81378 5-30-85</b></a>
+                <span>Пн–Сб, 10:00–19:00</span>
+              </div>
+            </li>
+            <li>
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+              <div>
+                <a href="https://instagram.com/mebelnazakazvbg" target="_blank" rel="noopener"><b>mebelnazakazvbg</b></a>
+                <span>Instagram — наши работы</span>
+              </div>
+            </li>
+            <li>
+              <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div>
+                <b>г. Выборг, ул. Приморская, д. 47</b>
+                <span>Студия мебели «Мебель на заказ»</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="map">
+          <div class="pin">
+            <b>Приморская, 47</b>
+            <span>г. Выборг, Ленинградская область</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <a class="logo" href="#top">
+          <span class="logo-mark">М</span>
+          <span class="logo-text">
+            <b>Мебель на заказ</b>
+            <span>Студия мебели · Выборг</span>
+          </span>
+        </a>
+
+        <div class="footer-cols">
+          <div class="footer-col">
+            <b>Студия мебели</b>
+            <p>г. Выборг, ул. Приморская, д. 47</p>
+            <p>Около 30 лет успешной работы</p>
+          </div>
+          <div class="footer-col">
+            <b>Связь</b>
+            <a href="tel:+78137853085">+7 81378 5-30-85</a>
+            <a href="https://instagram.com/mebelnazakazvbg" target="_blank" rel="noopener">Instagram: mebelnazakazvbg</a>
+          </div>
+          <div class="footer-col">
+            <b>Разделы</b>
+            <a href="#benefits">Почему мы</a>
+            <a href="#styles">Стили</a>
+            <a href="#process">Этапы работы</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Студия мебели «Мебель на заказ», г. Выборг</span>
+        <span>ИНН 470400353430</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  </script>
+
+</body>
+</html>
